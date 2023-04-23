@@ -1,0 +1,567 @@
+@font-face {
+  font-family: "Fraunces 144";
+  font-display: swap;
+  font-weight: 600;
+  src: url("Fraunces_144.eot");
+  src: url("Fraunces_144.woff") format("woff"),
+    url("Fraunces_144.otf") format("opentype");
+  src: url("../assets/fonts/fraunces/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf")
+    format("truetype-variations");
+}
+
+@font-face {
+  font-family: "Manrope-Regular";
+  font-display: swap;
+  font-weight: 400 700;
+  src: url("Manrope-Regular.eot");
+  src: url("Manrope-Regular.woff") format("woff"),
+    url("Manrope-Regular.otf") format("opentype");
+  src: url("../assets/fonts/manrope/Manrope-VariableFont_wght.ttf")
+    format("truetype-variations");
+}
+
+:root {
+  /* ###colors  */
+  /* ##primary  */
+  --clr-palette-primary-300: hsl(150, 100%, 63%);
+  --clr-palette-primary-900: hsl(273, 85%, 13%);
+
+  /* ##neutral */
+  --white: hsl(0, 0%, 100%);
+  --clr-palette-neutrl-50: hsl(274, 100%, 99%);
+  --clr-palette-neutral-800: hsl(271, 12%, 34%);
+
+  /* ###typography  */
+  /* ##font family  */
+  --ff-primary: "Fraunces 144";
+  --ff-secondary: "Manrope-Regular";
+
+  /* ##font sizes  */
+  --fs-heading-xl: 50px;
+
+  --fs-heading-l: 32px;
+
+  --fs-heading-m: 28px;
+
+  --fs-heading-s: 16px;
+
+  /* ##font weight  */
+  --fw-400: 400;
+  --fw-600: 600;
+  --fw-700: 700;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --fs-heading-xl: 60px;
+    --fs-heading-l: 48px;
+    --fs-heading-m: 32px;
+  }
+}
+
+@media (min-width: 1080px) {
+  :root {
+    --fs-heading-xl: 80px;
+    --fs-heading-l: 56px;
+    --fs-heading-s: 18px;
+  }
+}
+
+html {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* any ul that has a class on it has these properties */
+ul[class] {
+  list-style: none;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block; /* this is something you'll use often but more optional*/
+}
+
+/*
+Flow content:
+consistency using utilities classes to behave like regular flow content when we have done some CSS resetting. 
+Layout Land and Cube CSS
+*/
+
+.flow-content > * + * {
+  margin-top: 1rem;
+}
+
+.fs-heading {
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-600);
+}
+
+.fs-heading-xl {
+  font-size: var(--fs-heading-xl);
+  line-height: 1;
+  letter-spacing: -1.2px;
+}
+
+.fs-heading-l {
+  font-size: var(--fs-heading-l);
+}
+
+.fs-heading-m {
+  font-size: var(--fs-heading-m);
+}
+
+.fs-heading-s {
+  font-size: var(--fs-heading-s);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--ff-secondary);
+  font-weight: var(--fw-400);
+  font-size: var(--fs-heading-s);
+}
+
+.bg {
+  --accent-bg: var(--clr-palette-primary-300);
+  --accent-fg: var(--clr-palette-primary-900);
+
+  background: var(--bg, var(--white));
+  color: var(--fg, var(--clr-palette-primary-900));
+}
+
+.bg--light {
+  --bg: var(--clr-palette-neutrl-50);
+  --fg: var(--clr-palette-neutral-800);
+
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.bg--dark {
+  --bg: var(--clr-palette-primary-900);
+  --fg: var(--white);
+
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* buttons  */
+
+.btn--access {
+  color: inherit;
+}
+
+.btn--accent {
+  display: inline-block;
+  color: var(--accent-fg);
+  background: var(--accent-bg);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: var(--fw-700);
+  text-align: center;
+  padding: 12px 0;
+  letter-spacing: -0.16px;
+  line-height: 2;
+}
+
+/* header  */
+
+.header {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding: 32px 16px 156px;
+  /* border-bottom-left-radius: 150% 20%;
+  border-bottom-right-radius: 150% 20%; */
+}
+
+/* desktop 
+.edge {
+  width: 100%;
+  height: 100px;
+  max-width: 100%;
+  background: radial-gradient(
+    120% 130% at top,
+    var(--clr-palette-primary-900) 50%,
+    var(--clr-palette-neutrl-50) 51%
+  );
+} */
+
+.edge {
+  width: 100%;
+  height: 100px;
+  max-width: 100%;
+  background: radial-gradient(
+    110% 50% at top,
+    var(--clr-palette-primary-900) 50%,
+    var(--clr-palette-neutrl-50) 51%
+  );
+}
+
+.edge--features {
+  width: 100%;
+  height: 100px;
+  max-width: 100%;
+  background: radial-gradient(
+    110% 50% at top,
+    var(--clr-palette-neutrl-50) 50%,
+    transparent 51%
+  );
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  max-width: 1110px;
+  margin-inline: auto;
+}
+
+.fs-heading-xl {
+  margin: 64px 0 40px;
+}
+
+.underline {
+  text-decoration: underline 3px solid var(--accent-bg);
+  text-underline-offset: 8px;
+}
+
+.hero {
+  max-width: 730px;
+  margin-inline: auto;
+}
+
+.hero .btn--accent {
+  width: min(100%, 133px);
+}
+
+.hero__img {
+  max-width: 320px;
+  margin-inline: auto;
+  inset: auto 0 -25%;
+  position: absolute;
+}
+
+/* main  */
+
+/* features  */
+
+.features {
+  padding: 155px 16px 100px;
+  text-align: center;
+}
+
+.feature__section + .feature__section {
+  margin-top: 40px;
+}
+
+.features__circle {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--clr-palette-neutral-800);
+  color: var(--accent-fg);
+  font-family: var(--ff-primary);
+  font-size: var(--fw-700);
+  margin-inline: auto;
+}
+
+.fs-heading-m {
+  color: var(--accent-fg);
+  margin: 24px auto 16px;
+}
+
+/* test  */
+
+.test {
+  text-align: center;
+  padding: 100px 16px 74px;
+}
+
+.test__content {
+  max-width: 343px;
+  padding: 32px 31px 32px;
+  margin-inline: auto;
+}
+
+.test__content > blockquote {
+  margin: 16px auto 24px;
+}
+
+.test .btn--accent {
+  width: min(100%, 172px);
+}
+
+.test__img {
+  max-width: 265px;
+  margin-inline: auto;
+  transform: translateY(18%);
+  z-index: -1;
+  position: relative;
+}
+
+.footer {
+  text-align: center;
+  padding: 74px 0 64px;
+}
+
+.footer > img {
+  margin: 0 auto;
+  margin-bottom: 58px;
+}
+
+.social-media__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-media__item + .social-media__item {
+  margin-left: 28px;
+}
+
+/* tablet  */
+@media (min-width: 768px) {
+  .header {
+    position: relative;
+    padding: 32px 40px 203px;
+    z-index: 1;
+  }
+
+  .header::before {
+    content: "";
+    inset: 0;
+    position: absolute;
+    background: no-repeat url("../assets/images/bg-pattern-1.svg");
+    background-position: left -52% center;
+    z-index: -1;
+  }
+
+  .header::after {
+    content: "";
+    inset: 0;
+    position: absolute;
+    background: no-repeat url("../assets/images/bg-pattern-2.svg");
+    background-position: right -15% bottom 30%;
+    z-index: -1;
+  }
+
+  .fs-heading-xl {
+    margin: 56px 0 39px;
+    max-width: 33.125rem;
+    margin-inline: auto;
+  }
+
+  .hero__img {
+    max-width: 514px;
+    inset: auto 0 -28%;
+  }
+
+  .features {
+    padding: 203px 32px 103px;
+    text-align: left;
+  }
+
+  .feature__section {
+    max-width: 573px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: auto;
+  }
+
+  .features__content {
+    max-width: 493px;
+  }
+
+  .features__circle {
+    margin-inline: 0;
+  }
+
+  .test {
+    display: grid;
+    margin-inline: auto;
+    max-width: 689px;
+    grid-template-columns: minmax(175px, 1fr) minmax(106px, 1fr) minmax(
+        408px,
+        1fr
+      );
+
+    grid-template-rows: 151px 375px;
+  }
+
+  .test__content {
+    position: relative;
+    max-width: 100%;
+    grid-column: 2 / span 2;
+    grid-row: 2;
+    text-align: left;
+    padding: 48px 56px 56px;
+    overflow: visible;
+    z-index: 0;
+  }
+
+  .test__content::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: no-repeat url("../assets/images/bg-pattern-3.svg");
+    background-position: bottom right;
+    transform: translate(-2%, 25%);
+    z-index: -1;
+  }
+
+  .test__img {
+    max-width: 281px;
+    grid-column: 1 / 3;
+    transform: translateY(0);
+  }
+
+  .test__content > blockquote {
+    margin: 24px auto 24px;
+  }
+}
+
+@media (min-width: 940px) {
+  .header {
+    padding: 56px 40px 326px;
+  }
+
+  .header::before {
+    background-position: left -12% center;
+  }
+
+  .header::after {
+    background-position: right -4% bottom 30%;
+  }
+
+  .hero__img {
+    max-width: 715px;
+    inset: auto 0 -26%;
+  }
+
+  .features {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .features__circle {
+    margin-inline: auto;
+  }
+
+  .feature__section {
+    max-width: 354px;
+    display: block;
+    flex: 1;
+    margin-inline: 0;
+  }
+
+  .feature__section + .feature__section {
+    margin-top: 0;
+    margin-left: 26px;
+  }
+
+  .test {
+    display: grid;
+    margin-inline: auto;
+    max-width: 1112px;
+    justify-content: space-between;
+    /* align-items: center; */
+    grid-template-columns: minmax(382px, 1fr) minmax(min-content, 95px) minmax(
+        min-content,
+        635px
+      );
+
+    grid-template-rows: 173px 413px;
+  }
+
+  .test__img {
+    max-width: 477px;
+    grid-column: 1 /2;
+    grid-row: 1;
+  }
+
+  .test__content {
+    grid-column: 2 / -1;
+    grid-row: 2;
+  }
+
+  .test__content {
+    padding: 64px;
+    align-self: start;
+  }
+
+  .test__content::after {
+    transform: translate(-2%, 15%);
+  }
+
+  .test__content > blockquote {
+    margin: 32px auto 32px;
+  }
+
+  /* hover, active states  */
+
+  .social-media__item svg path {
+    transition: path 0.25s ease-in-out;
+  }
+
+  .social-media__item:hover svg path,
+  .social-media__item:active svg path {
+    fill: var(--clr-palette-primary-900);
+  }
+
+  .btn--access {
+    transition: color 0.25s ease-in-out;
+  }
+
+  .btn--accent,
+  .btn--access {
+    transition: color 0.25s ease-in-out;
+  }
+
+  .btn--accent:hover,
+  .btn--access:active {
+    background: transparent;
+    border: 2px solid var(--accent-bg);
+    color: var(--accent-bg);
+  }
+
+  .btn--access:hover,
+  .btn--access:active {
+    color: var(--accent-bg);
+  }
+}
